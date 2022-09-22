@@ -3,6 +3,7 @@ import { nanoid } from "nanoid";
 
 import { Form } from "./Form/Form";
 import ContactList from "./ContactList/ContactList";
+import{Wrapper,TitleH1,} from "./App.styled"
 
 export class App extends React.Component {
   state = {
@@ -69,8 +70,8 @@ export class App extends React.Component {
     const { filter } = this.state;
     const contacts = this.getFilterContact();
     return (
-      <div>
-        <h2>Phonebook</h2>
+      <Wrapper>
+        <TitleH1>Phonebook</TitleH1>
         <Form onSubmit={ addContakts} />
         <h2>Contacts</h2>
         <div>
@@ -79,7 +80,7 @@ export class App extends React.Component {
           <ContactList items={ contacts} removeContacts={removeContacts} />
         </div>
         
-      </div>
+      </Wrapper>
     );
   };
 };
