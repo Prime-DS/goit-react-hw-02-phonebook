@@ -1,7 +1,9 @@
 import React from "react";
+import PropTypes from 'prop-types';
 import { nanoid } from "nanoid";
 
-import{FormContacts,Btn} from "./Form.styled"
+import { FormContacts, Btn } from "./Form.styled";
+
 export class Form extends React.Component{
     state = {
         name: '',
@@ -54,3 +56,13 @@ export class Form extends React.Component{
         );
     }
 }
+
+Form.propTypes = {
+  contacts: PropTypes.arrayOf(
+    PropTypes.exact({
+      id: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      number: PropTypes.string.isRequired,
+    })
+  ),
+};
